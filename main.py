@@ -18,8 +18,9 @@ def get_random_comics():
     url = url_template.format(number)
     response = requests.get(url)
     response.raise_for_status()
-    description = response.json()['alt']
-    img_url = response.json()['img']
+    comics = response.json()
+    description = comics['alt']
+    img_url = comics['img']
     img = requests.get(img_url)
     img.raise_for_status()
     image = img.content
