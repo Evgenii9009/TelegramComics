@@ -7,6 +7,7 @@ import random
 def get_last_number():
     url = 'https://xkcd.com/info.0.json'
     response = requests.get(url)
+    response.raise_for_status()
     last_number = response.json()['num']
     return last_number
 
