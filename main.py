@@ -27,8 +27,8 @@ def get_random_comics():
 
 
 def main():
-    chat_id = os.getenv('CHAT_ID')
-    tg_token = os.getenv('TG_TOKEN')
+    chat_id = os.environ['CHAT_ID']
+    tg_token = os.environ['TG_TOKEN']
     description, image = get_random_comics()
     bot = telegram.Bot(tg_token)
     bot.send_photo(chat_id=chat_id, photo=image, caption=description)
